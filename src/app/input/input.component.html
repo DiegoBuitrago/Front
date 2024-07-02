@@ -1,29 +1,46 @@
-<div class="d-flex justify-content-center">
-    <form>
-        <span class="border">
-            <small id="All" class="form-text text-muted">{{textAllComponent}}</small>
-            <div class="form-group">
-            <label for="textSelectTypeNumber">{{textSelectTypeNumber}}</label>
-            <div class="form-group">
-                <label for="exampleFormControlSelect1">{{textSelectTypeNumber}}</label>
-                <select class="form-control" id="exampleFormControlSelect1" [(ngModel)]="documentTypeValue" name="documentTypeValue">
-                    <option *ngFor="let type of documentTypes" [value]="type.id">
-                      {{ type.name }}
-                    </option>
-                </select>
+<div class="container">
+    <div class="row">
+        <div class="col align-self-start">
+            dsadda
+        </div>
+        <div class="col align-self-center">
+            <div class="d-flex justify-content-center">
+                <div class="card" style="width: 18rem;">
+                    <form>
+                        <span class="border">
+                            <small id="All" class="form-text text-muted">{{ textAllComponent }}</small>
+                            <div class="form-group">
+                                <label for="textSelectTypeNumber">{{ textSelectTypeNumber }}</label>
+                                <div class="form-group">
+                                    <label for="textSelectTypeNumber2">{{ textSelectTypeNumber }}</label>
+                                    <select class="form-control" id="exampleFormControlSelect1"
+                                        [(ngModel)]="documentTypeValue" name="documentTypeValue">
+                                        <option *ngFor="let type of documentTypes" [value]="type.id">{{ type.name }}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="textNumberDocument">{{ textNumberDocument }}</label>
+                                <input type="text" class="form-control" id="documentNumber" [(ngModel)]="documentNumber"
+                                    name="documentNumber" maxlength="14" autocomplete="off"
+                                    (input)="formatNumber($event)">
+                                <div *ngIf="documentNumberError" class="text-danger">{{ documentNumberError }}</div>
+                            </div>
+                            <div>
+                                <span class="border">
+                                    <div class="d-flex justify-content-center">
+                                        <button type="button" class="btn btn-primary" (click)="search()">Buscar</button>
+                                    </div>
+                                </span>
+                            </div>
+                        </span>
+                    </form>
+                </div>
             </div>
-            </div>
-            <div class="form-group">
-                <label for="textNumberDocument">{{textNumberDocument}}</label>
-                <input type="text" class="form-control" id="documentNumber" [(ngModel)]="documentNumber" name="documentNumber">
-            </div>
-            <div>
-                <span class="border">
-                    <div class="d-flex justify-content-center">
-                        <button type="button" class="btn btn-primary" (click)="search()">Buscar</button>
-                    </div>
-                </span>
-            </div>
-        </span>
-    </form>
+        </div>
+        <div class="col align-self-end">
+            footer
+        </div>
+    </div>
 </div>

@@ -1,1 +1,42 @@
-<p>response works!</p>
+<div class="container">
+    <div class="row">
+      <div class="col align-self-start">
+        <button type="button" class="btn btn-primary" (click)="redirectToInput()">Atras</button>
+      </div>
+      <div class="col align-self-center">
+        <div class="card" style="width: 18rem;">\
+            <div class="mb-3 row">
+                <label for="formControlInput" class="form-label">{{ textFirstLastName }}</label>
+                <input class="form-control" type="text" placeholder="{{valueFirstLastName}}" aria-label="Disabled input example" disabled>
+            </div>
+            <div class="mb-3 row">
+                <label for="formControlInput" class="form-label">{{ textFirstName }}</label>
+                <input class="form-control" type="text" placeholder="{{valueFirstName}}" aria-label="Disabled input example" disabled>
+            </div>
+            <div class="mb-3 row">
+                <label for="formControlInput" class="form-label">{{ textFirstSecondLastName }}</label>
+                <input class="form-control" type="text" placeholder="{{valueFirstSecondLastName}}" aria-label="Disabled input example" disabled>
+            </div>
+            <div class="mb-3 row">
+                <label for="formControlInput" class="form-label">{{ textMiddleName }}</label>
+                <input class="form-control" type="text" placeholder="{{valueMiddleName}}" aria-label="Disabled input example" disabled>
+            </div>
+            <div class="mb-3 row">
+                <label for="formControlInput" class="form-label">{{ textPhone }}</label>
+                <input class="form-control" type="text" placeholder="{{valuePhone}}" this.valuePhone = '' aria-label="Disabled input example" disabled>
+            </div>
+            <div class="mb-3 row">
+                <label for="formControlInput" class="form-label">{{ textCity }}</label>
+                <input class="form-control" type="text" placeholder="{{valueCity}}" aria-label="Disabled input example" disabled>
+            </div>
+            <div class="mb-3 row">
+                <label for="formControlInput" class="form-label">{{ textAdress }}</label>
+                <input class="form-control" type="text" placeholder="{{valueAdress}}" aria-label="Disabled input example" disabled>
+            </div>
+        </div>
+      </div>
+      <div class="col align-self-end">
+        footer
+      </div>
+    </div>
+</div>
