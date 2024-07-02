@@ -30,7 +30,6 @@ export class InputComponent{
     this.documentTypeValue = 'D';
     
     this.documentTypes = [
-      { id: 'D', name: '' },
       { id: 'C', name: 'Cédula de Ciudadanía' },
       { id: 'P', name: 'Pasaporte' }
     ];
