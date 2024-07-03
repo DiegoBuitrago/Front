@@ -1,42 +1,52 @@
-<div class="container">
-    <div class="row">
-      <div class="col align-self-start">
-        <button type="button" class="btn btn-primary" (click)="redirectToInput()">Atras</button>
-      </div>
-      <div class="col align-self-center">
-        <div class="card" style="width: 18rem;">\
-            <div class="mb-3 row">
-                <label for="formControlInput" class="form-label">{{ textFirstLastName }}</label>
-                <input class="form-control" type="text" placeholder="{{valueFirstLastName}}" aria-label="Disabled input example" disabled>
+<div class="container mt-5">
+    <div class="row mb-3">
+        <div class="col-12 d-flex justify-content-start">
+            <button type="button" class="btn btn-primary" (click)="redirectToInput()">Atrás</button>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-8 col-lg-6">
+            <div *ngIf="!clientDetails" class="alert alert-danger" role="alert">
+                Cliente no encontrado.
             </div>
-            <div class="mb-3 row">
-                <label for="formControlInput" class="form-label">{{ textFirstName }}</label>
-                <input class="form-control" type="text" placeholder="{{valueFirstName}}" aria-label="Disabled input example" disabled>
-            </div>
-            <div class="mb-3 row">
-                <label for="formControlInput" class="form-label">{{ textFirstSecondLastName }}</label>
-                <input class="form-control" type="text" placeholder="{{valueFirstSecondLastName}}" aria-label="Disabled input example" disabled>
-            </div>
-            <div class="mb-3 row">
-                <label for="formControlInput" class="form-label">{{ textMiddleName }}</label>
-                <input class="form-control" type="text" placeholder="{{valueMiddleName}}" aria-label="Disabled input example" disabled>
-            </div>
-            <div class="mb-3 row">
-                <label for="formControlInput" class="form-label">{{ textPhone }}</label>
-                <input class="form-control" type="text" placeholder="{{valuePhone}}" this.valuePhone = '' aria-label="Disabled input example" disabled>
-            </div>
-            <div class="mb-3 row">
-                <label for="formControlInput" class="form-label">{{ textCity }}</label>
-                <input class="form-control" type="text" placeholder="{{valueCity}}" aria-label="Disabled input example" disabled>
-            </div>
-            <div class="mb-3 row">
-                <label for="formControlInput" class="form-label">{{ textAdress }}</label>
-                <input class="form-control" type="text" placeholder="{{valueAdress}}" aria-label="Disabled input example" disabled>
+            <div class="card shadow p-4">
+                <h5 class="mb-3 section-title">Información básica</h5>
+                <div class="form-group">
+                    <label for="formControlInput1" class="form-label">{{ textFirstLastName }}</label>
+                    <input class="form-control readonly-input" type="text" placeholder="{{valueFirstLastName}}" aria-label="Disabled input example" disabled>
+                </div>
+                <div class="form-group">
+                    <label for="formControlInput2" class="form-label">{{ textFirstName }}</label>
+                    <input class="form-control readonly-input" type="text" placeholder="{{valueFirstName}}" aria-label="Disabled input example" disabled>
+                </div>
+                <div class="form-group">
+                    <label for="formControlInput3" class="form-label">{{ textFirstSecondLastName }}</label>
+                    <input class="form-control readonly-input" type="text" placeholder="{{valueFirstSecondLastName}}" aria-label="Disabled input example" disabled>
+                </div>
+                <div class="form-group">
+                    <label for="formControlInput4" class="form-label">{{ textMiddleName }}</label>
+                    <input class="form-control readonly-input" type="text" placeholder="{{valueMiddleName}}" aria-label="Disabled input example" disabled>
+                </div>
+                <div class="form-group">
+                    <label for="formControlInput5" class="form-label">{{ textPhone }}</label>
+                    <input class="form-control readonly-input" type="text" placeholder="{{valuePhone}}" aria-label="Disabled input example" disabled>
+                </div>
+                <div class="form-group">
+                    <label for="formControlInput6" class="form-label">{{ textCity }}</label>
+                    <input class="form-control readonly-input" type="text" placeholder="{{valueCity}}" aria-label="Disabled input example" disabled>
+                </div>
+                <div class="form-group">
+                    <label for="formControlInput7" class="form-label">{{ textAdress }}</label>
+                    <input class="form-control readonly-input" type="text" placeholder="{{valueAdress}}" aria-label="Disabled input example" disabled>
+                </div>
             </div>
         </div>
-      </div>
-      <div class="col align-self-end">
-        footer
-      </div>
+    </div>
+    <div class="row justify-content-center mt-4">
+        <div class="col-12 text-center">
+            <footer class="text-muted">
+                footer
+            </footer>
+        </div>
     </div>
 </div>

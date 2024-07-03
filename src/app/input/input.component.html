@@ -1,46 +1,35 @@
-<div class="container">
-    <div class="row">
-        <div class="col align-self-start">
-            dsadda
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-10 text-center mb-4">
+            <h3 class="display-4">Bienvenido al Sistema de Información de Clientes</h3>
         </div>
-        <div class="col align-self-center">
-            <div class="d-flex justify-content-center">
-                <div class="card" style="width: 18rem;">
-                    <form>
-                        <span class="border">
-                            <small id="All" class="form-text text-muted">{{ textAllComponent }}</small>
-                            <div class="form-group">
-                                <label for="textSelectTypeNumber">{{ textSelectTypeNumber }}</label>
-                                <div class="form-group">
-                                    <label for="textSelectTypeNumber2">{{ textSelectTypeNumber }}</label>
-                                    <select class="form-control" id="exampleFormControlSelect1"
-                                        [(ngModel)]="documentTypeValue" name="documentTypeValue">
-                                        <option *ngFor="let type of documentTypes" [value]="type.id">{{ type.name }}
-                                        </option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="textNumberDocument">{{ textNumberDocument }}</label>
-                                <input type="text" class="form-control" id="documentNumber" [(ngModel)]="documentNumber"
-                                    name="documentNumber" maxlength="14" autocomplete="off"
-                                    (input)="formatNumber($event)">
-                                <div *ngIf="documentNumberError" class="text-danger">{{ documentNumberError }}</div>
-                            </div>
-                            <div>
-                                <span class="border">
-                                    <div class="d-flex justify-content-center">
-                                        <button type="button" class="btn btn-primary" (click)="search()">Buscar</button>
-                                    </div>
-                                </span>
-                            </div>
-                        </span>
-                    </form>
-                </div>
+        <div class="col-12 col-md-8 col-lg-4">
+            <div class="card shadow p-4">
+                <form>
+                    <small *ngIf="documentNumberError" id="All" class="form-text text-muted">{{ documentNumberError }}</small>
+                    <div class="form-group">
+                        <label for="textSelectTypeNumber" class="labeltext">{{ textSelectTypeNumber }}</label>
+                        <select class="form-control" id="exampleFormControlSelect1" [(ngModel)]="documentTypeValue" name="documentTypeValue" (change)="updateButtonState()">
+                            <option *ngFor="let type of documentTypes" [value]="type.id">{{ type.name }}</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="textNumberDocument" class="labeltext">{{ textNumberDocument }}</label>
+                        <input type="text" class="form-control" id="documentNumber" [(ngModel)]="documentNumber" name="documentNumber" maxlength="14" autocomplete="off" (input)="formatNumber($event)">
+                    </div>
+                    <div class="d-flex justify-content-center mt-3">
+                        <button type="button" class="btn btn-primary" [disabled]="isButtonDisabled" (click)="search()">Buscar</button>
+                    </div>
+                </form>
             </div>
         </div>
-        <div class="col align-self-end">
-            footer
+    </div>
+    <div class="row justify-content-center mt-4">
+        <div class="col-12 text-center">
+            <footer class="text-muted">
+                footer
+            </footer>
         </div>
     </div>
 </div>

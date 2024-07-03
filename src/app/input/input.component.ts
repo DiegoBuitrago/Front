@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component} from '@angular/core';
+import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -11,34 +11,22 @@ import { Router } from '@angular/router';
   styleUrls: ['./input.component.css']
 })
 export class InputComponent {
-  public textAllComponent: string;
-  public textSelectTypeNumber: string;
-  public textNumberDocument: string;
+  public textAllComponent: string  = 'Todos los campos son obligatorios';
+  public textSelectTypeNumber: string = 'Tipo de Documento';
+  public textNumberDocument: string = 'Número de Documento';
 
-  public documentNumber: string;
-  public documentTypeValue: string | null;
+  public documentNumber: string = '';
+  public documentTypeValue: string | null = null;
   
-  public documentTypes: DocumentType[];
-  public isButtonDisabled: boolean;
+  public documentTypes: DocumentType[] = [
+    { id: 'C', name: 'Cédula de Ciudadanía' },
+    { id: 'P', name: 'Pasaporte' }
+  ];
+  public isButtonDisabled: boolean = true;
 
-  public documentNumberError: string;
+  public documentNumberError: string = this.textAllComponent;
 
-  constructor(public router: Router) {
-    this.textAllComponent = 'Todos los campos son obligatorios';
-    this.textSelectTypeNumber = 'Tipo de Documento';
-    this.textNumberDocument = 'Número de Documento';
-    
-    this.documentNumber = '';
-    this.documentTypeValue = null;
-    
-    this.documentTypes = [
-      { id: 'C', name: 'Cédula de Ciudadanía' },
-      { id: 'P', name: 'Pasaporte' }
-    ];
-
-    this.isButtonDisabled = false;
-    this.documentNumberError = '';
-  }
+  constructor(public router: Router) {}
 
   public search(): void {
     this.documentNumberError = '';
@@ -73,25 +61,37 @@ export class InputComponent {
 
   private validateIsNumber(number: string): boolean {
     let numberWithoutCommas = this.removeCommas(number);
-    let parsedNumber = parseFloat(numberWithoutCommas);
-    if (isNaN(parsedNumber)) {
-      return false;
+    if (/^\d+(\.\d+)?$/.test(numberWithoutCommas)) {
+        return true;
+    } else {
+        return false;
     }
-    return true;
   }
 
   public formatNumber(event: Event): void {
     const input = event.target as HTMLInputElement;
-    let value = input.value.replace(/\D/g, '');
+    let value = input.value.replace(/[^a-zA-Z0-9]/g, '');
     this.documentNumber = value.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    this.updateButtonState();
+  }
+
+  public updateButtonState(): void {
+    if(this.documentNumber!==null&&this.documentNumber!==''
+      &&this.documentTypeValue!==null&&this.documentTypeValue!==''){
+      this.isButtonDisabled = false
+      this.documentNumberError = ''
+    }else{
+      this.isButtonDisabled = true
+      this.documentNumberError = this.textAllComponent
+    }
   }
 
   public removeCommas(str: string): string {
-    return str.replace(/,/g, '');
+    return str.replace(/,/g, '')
   }
 }
 
 interface DocumentType {  
-  id: string;
-  name: string;
+  id: string
+  name: string
 }
